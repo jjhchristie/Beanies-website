@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabrina Christie's Interiors — Interior Design &amp; Homewares</title>
+<meta name="description" content="Sabrina Christie's Interiors — interior design services and a shop of fabrics, wallpaper, lighting, brasswear, rugs, homeware and furniture.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+
+/* ============ DESIGN TOKENS (Sabrina Christie's Interiors design system) ============ */
+:root{
+  --color-cream:#F7F2E6; --color-cream-deep:#EFE4CE; --color-paper:#FFFDF8;
+  --color-ink:#2A2620; --color-ink-soft:#5C5645; --color-ink-faint:#8A8371;
+  --color-sage:#7C8A6E; --color-sage-deep:#576249; --color-sage-pale:#E4E7D9;
+  --color-terracotta:#BE6A45; --color-terracotta-deep:#8F4C2E; --color-terracotta-pale:#F1DCC9;
+  --color-brass:#A6813F; --color-brass-deep:#7C5F2C; --color-brass-pale:#EDE0C3;
+  --color-navy:#33465A; --color-navy-deep:#1F2C38; --color-navy-pale:#DCE3E7;
+  --color-berry:#7A2F3A;
+
+  --surface-page:var(--color-cream); --surface-card:var(--color-paper); --surface-card-alt:var(--color-cream-deep);
+  --surface-inverse:var(--color-ink); --surface-sage:var(--color-sage-pale); --surface-terracotta:var(--color-terracotta-pale);
+  --text-primary:var(--color-ink); --text-secondary:var(--color-ink-soft); --text-faint:var(--color-ink-faint);
+  --text-on-dark:var(--color-cream); --text-on-accent:var(--color-cream);
+  --text-link:var(--color-terracotta-deep); --text-link-hover:var(--color-terracotta);
+  --accent-primary:var(--color-sage-deep); --accent-primary-hover:var(--color-sage);
+  --accent-secondary:var(--color-terracotta); --accent-secondary-hover:var(--color-terracotta-deep);
+  --accent-brass:var(--color-brass);
+  --border-subtle:rgba(42,38,32,0.10); --border-default:rgba(42,38,32,0.18); --border-strong:rgba(42,38,32,0.32);
+  --focus-ring:var(--color-brass-deep);
+  --state-success:var(--color-sage-deep); --state-error:var(--color-berry); --state-warning:var(--color-terracotta);
+
+  --font-display:'Libre Caslon Display',Georgia,'Times New Roman',serif;
+  --font-body:'Work Sans',-apple-system,sans-serif;
+  --text-display-xl:clamp(40px,6vw,72px); --text-display-l:44px; --text-display-m:34px; --text-display-s:26px;
+  --text-heading:22px; --text-subheading:19px;
+  --text-body-l:18px; --text-body:16px; --text-body-s:14px; --text-label:12px; --text-caption:12px;
+  --leading-tight:1.08; --leading-snug:1.25; --leading-body:1.6;
+  --tracking-tight:-0.01em; --tracking-normal:0; --tracking-label:0.14em; --tracking-wide:0.06em;
+  --weight-regular:400; --weight-medium:500; --weight-semibold:600;
+
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px; --space-6:32px; --space-7:48px; --space-8:64px; --space-9:96px; --space-10:128px;
+  --container-max:1280px; --container-narrow:760px;
+
+  --radius-xs:2px; --radius-sm:3px; --radius-md:6px; --radius-lg:10px; --radius-pill:999px;
+  --shadow-card:0 1px 2px rgba(38,32,20,0.05),0 10px 28px rgba(38,32,20,0.08);
+  --shadow-raised:0 2px 6px rgba(38,32,20,0.08),0 18px 40px rgba(38,32,20,0.12);
+  --shadow-inset:inset 0 1px 3px rgba(38,32,20,0.10);
+  --ease-standard:cubic-bezier(.4,0,.2,1);
+  --ease-out:cubic-bezier(0,0,.2,1);
+  --duration-fast:140ms; --duration-standard:220ms; --duration-slow:420ms;
+}
+
+/* ============ RESET / BASE ============ */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; }
+@media (prefers-reduced-motion:no-preference){ html{ scroll-behavior:smooth; } }
+body{
+  margin:0; background:var(--surface-page); color:var(--text-primary);
+  font-family:var(--font-body); font-size:var(--text-body); line-height:var(--leading-body);
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4,p,figure{ margin:0; }
+img{ max-width:100%; display:block; }
+a{ color:inherit; }
+button{ font-family:inherit; }
+ul{ list-style:none; margin:0; padding:0; }
+.container{ max-width:var(--container-max); margin:0 auto; padding:0 var(--space-6); }
+.visually-hidden{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.skip-link{ position:absolute; left:var(--space-4); top:-60px; background:var(--color-ink); color:var(--color-cream); padding:var(--space-2) var(--space-4); border-radius:var(--radius-xs); z-index:1000; transition:top var(--duration-standard) var(--ease-out); }
+.skip-link:focus{ top:var(--space-4); }
+:focus-visible{ outline:2px solid var(--focus-ring); outline-offset:2px; }
+
+.eyebrow{
+  font-family:var(--font-body); font-size:var(--text-label); letter-spacing:var(--tracking-label);
+  text-transform:uppercase; color:var(--text-secondary); font-weight:var(--weight-medium);
+}
+.eyebrow.on-dark{ color:var(--color-cream-deep); }
+
+/* ============ BUTTONS ============ */
+.btn{
+  font-family:var(--font-body); font-size:13px; letter-spacing:var(--tracking-wide); text-transform:uppercase;
+  font-weight:var(--weight-medium); padding:13px 22px; border-radius:var(--radius-xs); border:1px solid transparent;
+  cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:8px; text-decoration:none;
+  transition:background var(--duration-standard) var(--ease-standard), color var(--duration-standard) var(--ease-standard),
+             border-color var(--duration-standard) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);
+  white-space:nowrap;
+}
+.btn:active{ transform:translateY(1px); }
+.btn svg{ width:16px; height:16px; }
+.btn-sm{ font-size:12px; padding:9px 16px; }
+.btn-lg{ font-size:13px; padding:16px 30px; }
+.btn-primary{ background:var(--accent-primary); color:var(--text-on-dark); }
+.btn-primary:hover{ background:var(--accent-primary-hover); }
+.btn-secondary{ background:var(--color-terracotta); color:var(--text-on-accent); }
+.btn-secondary:hover{ background:var(--accent-secondary-hover); }
+.btn-outline{ background:transparent; color:var(--text-primary); border-color:var(--border-strong); }
+.btn-outline:hover{ border-color:var(--color-terracotta-deep); color:var(--color-terracotta-deep); }
+.btn-outline.on-dark{ color:var(--color-cream); border-color:rgba(247,242,230,0.5); }
+.btn-outline.on-dark:hover{ border-color:var(--color-cream); color:var(--color-cream); }
+.btn-ghost{ background:transparent; color:var(--text-primary); }
+.btn-ghost:hover{ color:var(--color-terracotta-deep); }
+.btn-dark{ background:var(--surface-inverse); color:var(--text-on-dark); }
+.btn-dark:hover{ background:var(--color-ink-soft); }
+.btn[disabled]{ opacity:.5; cursor:not-allowed; }
+
+/* ============ TAGS ============ */
+.tag{
+  display:inline-block; padding:5px 14px; border-radius:var(--radius-pill); font-family:var(--font-body);
+  font-size:11px; letter-spacing:.08em; text-transform:uppercase; font-weight:var(--weight-medium);
+}
+.tag-sage{ background:var(--color-sage-pale); color:var(--color-sage-deep); }
+.tag-terracotta{ background:var(--color-terracotta-pale); color:var(--color-terracotta-deep); }
+.tag-brass{ background:var(--color-brass-pale); color:var(--color-brass-deep); }
+.tag-navy{ background:var(--color-navy-pale); color:var(--color-navy-deep); }
+
+/* ============ PLACEHOLDER IMAGERY ============
+   No brand photography was supplied — flagged placeholders stand in for
+   full-bleed photography until real images are dropped in. Swap any .ph
+   element's background for a real <img> when photography is available. */
+.ph{
+  position:relative; width:100%; overflow:hidden; background:var(--surface-card-alt);
+  display:flex; align-items:center; justify-content:center; color:var(--text-faint);
+}
+.ph::before{ content:""; position:absolute; inset:0; opacity:.55; }
+.ph-sage::before{ background:linear-gradient(135deg,var(--color-sage-pale),var(--color-cream-deep)); }
+.ph-terracotta::before{ background:linear-gradient(135deg,var(--color-terracotta-pale),var(--color-cream-deep)); }
+.ph-brass::before{ background:linear-gradient(135deg,var(--color-brass-pale),var(--color-cream-deep)); }
+.ph-navy::before{ background:linear-gradient(135deg,var(--color-navy-pale),var(--color-cream-deep)); }
+.ph-ink::before{ background:linear-gradient(135deg,#4a4436,#2A2620); }
+.ph-label{
+  position:relative; text-align:center; padding:var(--space-3); font-size:11px; letter-spacing:.06em;
+  line-height:1.5; max-width:80%;
+}
+.ph-ink .ph-label{ color:rgba(247,242,230,0.65); }
+.ph-4-5{ aspect-ratio:4/5; }
+.ph-1-1{ aspect-ratio:1/1; }
+.ph-16-9{ aspect-ratio:16/9; }
+.ph-3-2{ aspect-ratio:3/2; }
+.ph .zoom-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transform:scale(1); transition:transform var(--duration-slow) var(--ease-out); }
+.ph:hover .zoom-img,.card-link:hover .ph .zoom-img{ transform:scale(1.05); }
+
+/* ============ HEADER ============ */
+.announcement{
+  background:var(--surface-inverse); color:var(--text-on-dark); text-align:center; padding:9px var(--space-4);
+  font-size:12px; letter-spacing:.1em; text-transform:uppercase;
+}
+header.site-header{
+  position:sticky; top:0; z-index:100; background:var(--surface-page); border-bottom:1px solid var(--border-subtle);
+  transition:box-shadow var(--duration-standard) var(--ease-standard), background var(--duration-standard) var(--ease-standard);
+}
+header.site-header.is-scrolled{
+  background:rgba(247,242,230,0.9); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  box-shadow:var(--shadow-card);
+}
+.nav-row{ display:flex; align-items:center; justify-content:space-between; padding:18px var(--space-6); gap:var(--space-5); }
+.logo{ font-family:var(--font-display); font-size:22px; letter-spacing:.02em; text-decoration:none; color:var(--text-primary); flex-shrink:0; }
+.nav-links{ display:flex; gap:28px; }
+.nav-links a{
+  font-size:12px; letter-spacing:.1em; text-transform:uppercase; text-decoration:none; color:var(--text-primary);
+  padding-bottom:3px; border-bottom:1px solid transparent; transition:color var(--duration-standard) var(--ease-standard), border-color var(--duration-standard) var(--ease-standard);
+}
+.nav-links a:hover{ color:var(--color-terracotta-deep); border-color:var(--color-terracotta-deep); }
+.nav-icons{ display:flex; align-items:center; gap:18px; }
+.nav-icons button{ background:none; border:none; cursor:pointer; color:var(--text-primary); display:flex; padding:2px; transition:color var(--duration-standard) var(--ease-standard); }
+.nav-icons button:hover{ color:var(--color-terracotta-deep); }
+.nav-icons svg{ width:19px; height:19px; stroke-width:1.5; }
+.menu-toggle{ display:none; }
+
+.search-bar{ max-height:0; overflow:hidden; background:var(--surface-card-alt); transition:max-height var(--duration-standard) var(--ease-standard); border-bottom:1px solid transparent; }
+.search-bar.is-open{ max-height:80px; border-color:var(--border-subtle); }
+.search-bar form{ display:flex; gap:var(--space-3); padding:var(--space-4) var(--space-6); max-width:var(--container-max); margin:0 auto; }
+.search-bar input{ flex:1; }
+
+/* ============ FORM CONTROLS ============ */
+.field{ display:flex; flex-direction:column; gap:6px; }
+label.field-label{ font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-secondary); }
+input[type="text"],input[type="email"],input[type="search"],select{
+  font-family:var(--font-body); font-size:14px; padding:12px 14px; border-radius:var(--radius-xs);
+  border:1px solid var(--border-default); background:var(--surface-card); color:var(--text-primary);
+  transition:border-color var(--duration-standard) var(--ease-standard);
+}
+input::placeholder{ color:var(--text-faint); }
+input:focus,select:focus{ border-color:var(--color-brass-deep); }
+.on-dark input[type="email"]{ background:rgba(247,242,230,0.08); border-color:rgba(247,242,230,0.28); color:var(--color-cream); }
+.on-dark input::placeholder{ color:rgba(247,242,230,0.5); }
+
+/* ============ HERO ============ */
+.hero{ position:relative; }
+.hero .ph{ aspect-ratio:16/8; }
+@media (max-width:720px){ .hero .ph{ aspect-ratio:4/5; } }
+.hero-overlay{
+  position:absolute; inset:0; background:linear-gradient(90deg, rgba(42,38,32,.62) 10%, rgba(42,38,32,.18) 65%, rgba(42,38,32,0));
+  display:flex; align-items:center;
+}
+.hero-copy{ padding:0 var(--space-8); max-width:620px; }
+@media (max-width:720px){ .hero-copy{ padding:0 var(--space-5); } }
+.hero-copy .eyebrow{ color:var(--color-cream-deep); margin-bottom:var(--space-3); }
+.hero-copy h1{
+  font-family:var(--font-display); font-size:var(--text-display-xl); line-height:var(--leading-tight);
+  color:var(--color-cream); max-width:560px;
+}
+.hero-copy p{ margin-top:var(--space-4); color:var(--color-cream-deep); font-size:var(--text-body-l); max-width:480px; }
+.hero-actions{ margin-top:var(--space-6); display:flex; gap:var(--space-3); flex-wrap:wrap; }
+
+/* ============ SECTIONS ============ */
+section{ padding:var(--space-9) 0; }
+.section-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:var(--space-5); margin-bottom:var(--space-7); flex-wrap:wrap; }
+.section-head h2{ font-family:var(--font-display); font-size:var(--text-display-m); margin-top:var(--space-2); }
+.section-head p.section-sub{ margin-top:var(--space-3); color:var(--text-secondary); max-width:560px; }
+.section-head .view-all{ font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:var(--text-link); text-decoration:none; border-bottom:1px solid transparent; }
+.section-head .view-all:hover{ color:var(--text-link-hover); border-color:var(--text-link-hover); }
+
+/* ---- Services ---- */
+.services-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:var(--space-6); }
+@media (max-width:980px){ .services-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:560px){ .services-grid{ grid-template-columns:1fr; } }
+.service-card{
+  background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-sm);
+  padding:var(--space-6) var(--space-5); display:flex; flex-direction:column; gap:var(--space-4);
+  transition:box-shadow var(--duration-standard) var(--ease-standard), transform var(--duration-standard) var(--ease-standard);
+}
+.service-card:hover{ box-shadow:var(--shadow-card); transform:translateY(-2px); }
+.service-icon{
+  width:44px; height:44px; border-radius:var(--radius-xs); background:var(--color-sage-pale);
+  display:flex; align-items:center; justify-content:center; color:var(--color-sage-deep);
+}
+.service-icon svg{ width:22px; height:22px; stroke-width:1.5; }
+.service-card h3{ font-family:var(--font-display); font-size:var(--text-heading); }
+.service-card p{ color:var(--text-secondary); font-size:var(--text-body-s); flex:1; }
+.service-card .service-link{ font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--text-link); text-decoration:none; }
+.service-card .service-link:hover{ color:var(--text-link-hover); }
+
+/* ---- Filter chips (shared: projects + shop) ---- */
+.filter-row{ display:flex; gap:var(--space-2); flex-wrap:wrap; margin-bottom:var(--space-7); }
+.chip{
+  font-family:var(--font-body); font-size:12px; letter-spacing:.06em; text-transform:uppercase; font-weight:var(--weight-medium);
+  padding:9px 18px; border-radius:var(--radius-pill); border:1px solid var(--border-default); background:transparent;
+  color:var(--text-secondary); cursor:pointer; transition:all var(--duration-standard) var(--ease-standard);
+}
+.chip:hover{ border-color:var(--color-terracotta-deep); color:var(--color-terracotta-deep); }
+.chip.is-active{ background:var(--color-sage-deep); border-color:var(--color-sage-deep); color:var(--text-on-dark); }
+
+/* ---- Projects ---- */
+.projects-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-6); }
+@media (max-width:980px){ .projects-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:640px){ .projects-grid{ grid-template-columns:1fr; } }
+.project-card{ display:block; text-decoration:none; color:inherit; }
+.project-card .ph{ border-radius:var(--radius-xs); }
+.project-meta{ margin-top:var(--space-3); }
+.project-meta .tag{ margin-bottom:var(--space-2); }
+.project-meta h3{ font-family:var(--font-display); font-size:18px; }
+.project-meta .project-location{ font-size:13px; color:var(--text-secondary); margin-top:2px; }
+.project-card[hidden]{ display:none; }
+
+/* ---- About ---- */
+.about-band{ background:var(--surface-sage); }
+.about-flex{ display:flex; gap:var(--space-8); align-items:center; }
+@media (max-width:860px){ .about-flex{ flex-direction:column; } }
+.about-flex .ph{ flex:1 1 45%; border-radius:var(--radius-sm); }
+.about-copy{ flex:1 1 55%; max-width:520px; }
+.about-copy h2{ font-family:var(--font-display); font-size:var(--text-display-s); margin:var(--space-2) 0 var(--space-4); }
+.about-copy p{ color:var(--text-secondary); margin-bottom:var(--space-4); font-size:var(--text-body); }
+.about-strip{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:2px; }
+@media (max-width:640px){ .about-strip{ grid-template-columns:1fr; } }
+
+/* ---- Shop ---- */
+.shop-layout{ display:flex; gap:var(--space-8); align-items:flex-start; }
+@media (max-width:860px){ .shop-layout{ flex-direction:column; } }
+.shop-sidebar{ width:220px; flex-shrink:0; position:sticky; top:100px; }
+@media (max-width:860px){ .shop-sidebar{ width:100%; position:static; } }
+.shop-sidebar h3{ font-family:var(--font-display); font-size:var(--text-heading); margin-bottom:var(--space-5); }
+.shop-sidebar .filter-row{ flex-direction:column; align-items:flex-start; margin-bottom:0; }
+.shop-sidebar .chip{ width:100%; text-align:left; border-radius:var(--radius-xs); }
+.shop-main{ flex:1; min-width:0; }
+.shop-count{ font-size:13px; color:var(--text-secondary); }
+.products-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:var(--space-6); }
+@media (max-width:980px){ .products-grid{ grid-template-columns:repeat(3,1fr); } }
+@media (max-width:720px){ .products-grid{ grid-template-columns:repeat(2,1fr); } }
+.product-card{ display:block; text-decoration:none; color:inherit; }
+.product-card .ph{ border-radius:var(--radius-xs); }
+.product-card .tag{ position:absolute; top:10px; left:10px; z-index:1; }
+.product-body{ margin-top:var(--space-3); }
+.product-body .product-title{ font-family:var(--font-display); font-size:17px; }
+.product-body .product-price{ font-size:13px; color:var(--text-secondary); margin-top:4px; }
+.product-card[hidden]{ display:none; }
+.empty-state{ padding:var(--space-8) 0; text-align:center; color:var(--text-faint); font-style:italic; display:none; }
+.empty-state.is-visible{ display:block; }
+
+/* ---- CTA band ---- */
+.cta-band{ background:var(--color-terracotta-pale); text-align:center; }
+.cta-band .container{ max-width:var(--container-narrow); }
+.cta-band h2{ font-family:var(--font-display); font-size:var(--text-display-s); margin-bottom:var(--space-4); }
+.cta-band p{ color:var(--text-secondary); margin-bottom:var(--space-6); }
+.cta-actions{ display:flex; gap:var(--space-3); justify-content:center; flex-wrap:wrap; }
+
+/* ---- Newsletter ---- */
+.newsletter{ background:var(--surface-inverse); color:var(--color-cream); }
+.newsletter .container{ max-width:var(--container-narrow); text-align:center; }
+.newsletter h2{ font-family:var(--font-display); font-size:var(--text-display-s); margin-bottom:var(--space-3); }
+.newsletter p{ color:var(--color-cream-deep); margin-bottom:var(--space-6); }
+.newsletter-form{ display:flex; gap:var(--space-3); max-width:420px; margin:0 auto; }
+@media (max-width:480px){ .newsletter-form{ flex-direction:column; } }
+.newsletter-form input{ flex:1; }
+.newsletter-note{ margin-top:var(--space-4); font-size:12px; color:rgba(247,242,230,0.6); }
+.newsletter-success{ display:none; font-size:var(--text-body); color:var(--color-cream); }
+.newsletter-success.is-visible{ display:block; }
+.newsletter-form.is-hidden{ display:none; }
+
+/* ============ FOOTER ============ */
+footer.site-footer{ background:var(--surface-inverse); color:var(--color-cream); padding-top:var(--space-8); }
+.footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:var(--space-6); padding-bottom:var(--space-7); }
+@media (max-width:860px){ .footer-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:480px){ .footer-grid{ grid-template-columns:1fr; } }
+.footer-brand .logo{ color:var(--color-cream); }
+.footer-brand p{ color:rgba(247,242,230,0.65); margin-top:var(--space-4); font-size:var(--text-body-s); max-width:280px; }
+.footer-social{ display:flex; gap:var(--space-4); margin-top:var(--space-5); }
+.footer-social a{ color:var(--color-cream-deep); display:flex; transition:color var(--duration-standard) var(--ease-standard); }
+.footer-social a:hover{ color:var(--color-terracotta); }
+.footer-social svg{ width:18px; height:18px; stroke-width:1.5; }
+.footer-col h4{ font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:rgba(247,242,230,0.5); margin-bottom:var(--space-4); }
+.footer-col ul{ display:flex; flex-direction:column; gap:var(--space-3); }
+.footer-col a{ font-size:14px; color:rgba(247,242,230,0.85); text-decoration:none; }
+.footer-col a:hover{ color:var(--color-terracotta); }
+.footer-bottom{ border-top:1px solid rgba(247,242,230,0.14); padding:var(--space-5) 0; display:flex; justify-content:space-between; gap:var(--space-4); flex-wrap:wrap; font-size:12px; color:rgba(247,242,230,0.5); }
+.footer-bottom a{ text-decoration:none; color:rgba(247,242,230,0.5); }
+.footer-bottom a:hover{ color:var(--color-cream); }
+
+/* ============ MOBILE NAV ============ */
+@media (max-width:900px){
+  .nav-links{
+    position:fixed; inset:0 0 0 auto; width:min(320px,80vw); height:100vh; background:var(--surface-page);
+    flex-direction:column; align-items:flex-start; gap:0; padding:calc(var(--space-8) + 10px) var(--space-6) var(--space-6);
+    transform:translateX(100%); transition:transform var(--duration-standard) var(--ease-standard);
+    box-shadow:var(--shadow-raised); z-index:150;
+  }
+  .nav-links.is-open{ transform:translateX(0); }
+  .nav-links a{ padding:var(--space-3) 0; width:100%; border-bottom:1px solid var(--border-subtle); font-size:13px; }
+  .menu-toggle{
+    display:flex; align-items:center; justify-content:center; background:none; border:none; cursor:pointer;
+    color:var(--text-primary); padding:2px; z-index:160;
+  }
+  .menu-toggle svg{ width:22px; height:22px; stroke-width:1.5; }
+  .nav-scrim{ display:none; position:fixed; inset:0; background:rgba(42,38,32,0.4); z-index:140; }
+  .nav-scrim.is-open{ display:block; }
+}
+@media (min-width:901px){ .nav-scrim{ display:none !important; } }
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="announcement">Complimentary first design consultation — book before 31 August</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="nav-row container">
+    <a class="logo" href="#top">Sabrina Christie's Interiors</a>
+
+    <div class="nav-scrim" id="navScrim"></div>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#services">Interior Design</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">Our Story</a>
+      <a href="#shop">Shop</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-icons">
+      <button type="button" id="searchToggle" aria-expanded="false" aria-controls="searchBar" aria-label="Toggle search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
+      <button type="button" aria-label="Account">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+      </button>
+      <button type="button" aria-label="Basket, 0 items">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      </button>
+      <button class="menu-toggle" type="button" id="menuToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="search-bar" id="searchBar">
+    <form role="search" onsubmit="return false">
+      <label class="visually-hidden" for="siteSearch">Search products and projects</label>
+      <input type="search" id="siteSearch" placeholder="Search fabrics, lighting, projects…">
+      <button class="btn btn-outline btn-sm" type="submit">Search</button>
+    </form>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top" style="padding:0;">
+    <div class="ph ph-terracotta">
+      <span class="ph-label">Photo — country kitchen, brass hardware, morning light</span>
+      <div class="hero-overlay">
+        <div class="hero-copy">
+          <p class="eyebrow">Interior design &amp; homewares, UK-wide</p>
+          <h1>Rooms that get better with age.</h1>
+          <p>We design and dress homes that mix inherited antiques with something a bit odd from a flea market — then fill the shop with the fabric, brass, and lighting to do it yourself.</p>
+          <div class="hero-actions">
+            <a class="btn btn-dark" href="#projects">View our projects</a>
+            <a class="btn btn-outline on-dark" href="#shop">Shop the edit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">What we do</p>
+          <h2>Interior design, start to finish</h2>
+          <p class="section-sub">From a single consultation to a full renovation, run by the same small team from first sketch to last cushion.</p>
+        </div>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          </div>
+          <h3>Design consultations</h3>
+          <p>An hour with us to talk paint, layout, and what's not working yet — in person or over video, with a follow-up plan you can act on.</p>
+          <a class="service-link" href="#contact">Book a consultation →</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="M3 9h6"/></svg>
+          </div>
+          <h3>Full room &amp; home design</h3>
+          <p>Concept to install — mood boards, floor plans, lighting layouts, and sourcing, all managed for you room by room or house-wide.</p>
+          <a class="service-link" href="#contact">Enquire →</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <h3>Sourcing &amp; styling</h3>
+          <p>We hunt down the fabric, the lamp, the odd little chair that makes a room feel finished — from workshops across the country.</p>
+          <a class="service-link" href="#contact">Enquire →</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m14.5 2.5-6 6 3 3 6-6a2.12 2.12 0 0 0-3-3Z"/><path d="M3 21l3-1 8-8-3-3-8 8-1 3Z"/></svg>
+          </div>
+          <h3>Renovation project management</h3>
+          <p>From knocking down a wall to hanging the last picture, we run the whole job — trades, timelines, and the tricky decisions in between.</p>
+          <a class="service-link" href="#contact">Enquire →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" style="background:var(--surface-card-alt);">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Recent work</p>
+          <h2>Projects</h2>
+          <p class="section-sub">A few of the houses and flats we've recently finished, from full renovations to single-room refreshes.</p>
+        </div>
+      </div>
+
+      <div class="filter-row" id="projectFilters" role="group" aria-label="Filter projects by type">
+        <button class="chip is-active" data-project-filter="all" type="button">All projects</button>
+        <button class="chip" data-project-filter="country-house" type="button">Country houses</button>
+        <button class="chip" data-project-filter="city-flat" type="button">City flats</button>
+        <button class="chip" data-project-filter="full-renovation" type="button">Full renovations</button>
+        <button class="chip" data-project-filter="single-room" type="button">Single rooms</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        <a class="project-card" href="#" data-project-category="country-house full-renovation">
+          <div class="ph ph-4-5"><span class="ph-label">Photo — Cotswolds farmhouse, sitting room</span></div>
+          <div class="project-meta">
+            <span class="tag tag-sage">Full renovation</span>
+            <h3>The Cotswolds Farmhouse</h3>
+            <p class="project-location">Gloucestershire</p>
+          </div>
+        </a>
+        <a class="project-card" href="#" data-project-category="city-flat single-room">
+          <div class="ph ph-4-5"><span class="ph-label">Photo — Highbury garden flat kitchen</span></div>
+          <div class="project-meta">
+            <span class="tag tag-terracotta">Kitchen</span>
+            <h3>Highbury Garden Flat</h3>
+            <p class="project-location">London N5</p>
+          </div>
+        </a>
+        <a class="project-card" href="#" data-project-category="country-house full-renovation">
+          <div class="ph ph-4-5"><span class="ph-label">Photo — Thorpe Rectory hallway</span></div>
+          <div class="project-meta">
+            <span class="tag tag-sage">Full renovation</span>
+            <h3>Thorpe Rectory</h3>
+            <p class="project-location">Suffolk</p>
+          </div>
+        </a>
+        <a class="project-card" href="#" data-project-category="city-flat full-renovation">
+          <div class="ph ph-4-5"><span class="ph-label">Photo — Marylebone pied-à-terre living room</span></div>
+          <div class="project-meta">
+            <span class="tag tag-brass">Full renovation</span>
+            <h3>Marylebone Pied-à-terre</h3>
+            <p class="project-location">London W1</p>
+          </div>
+        </a>
+        <a class="project-card" href="#" data-project-category="country-house single-room">
+          <div class="ph ph-4-5"><span class="ph-label">Photo — Old Vicarage sitting room</span></div>
+          <div class="project-meta">
+            <span class="tag tag-navy">Sitting room</span>
+            <h3>The Old Vicarage</h3>
+            <p class="project-location">Devon</p>
+          </div>
+        </a>
+        <a class="project-card" href="#" data-project-category="city-flat single-room">
+          <div class="ph ph-4-5"><span class="ph-label">Photo — Canal House main bedroom</span></div>
+          <div class="project-meta">
+            <span class="tag tag-terracotta">Bedroom</span>
+            <h3>Canal House</h3>
+            <p class="project-location">Bath</p>
+          </div>
+        </a>
+      </div>
+      <p class="empty-state" id="projectsEmpty">No projects in this category yet — check back soon.</p>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about-band" id="about">
+    <div class="container about-flex">
+      <div class="ph ph-1-1 ph-sage"><span class="ph-label">Photo — our workshop, Somerset</span></div>
+      <div class="about-copy">
+        <p class="eyebrow">Our story</p>
+        <h2>A house, considered</h2>
+        <p>Sabrina Christie's Interiors began as one house, restored slowly, room by room. We kept what worked, replaced what didn't, and got a little obsessive about door handles along the way.</p>
+        <p>Today we design homes and run a small shop alongside it — working with workshops across the country to make the fabric, lighting, and furniture for rooms that are meant to be lived in, not just photographed.</p>
+        <a class="btn btn-outline" href="#shop">Shop the collection</a>
+      </div>
+    </div>
+    <div class="about-strip">
+      <div class="ph ph-1-1 ph-terracotta"><span class="ph-label">Photo — Sabrina at the workbench</span></div>
+      <div class="ph ph-1-1 ph-brass"><span class="ph-label">Photo — sourcing trip, brass foundry</span></div>
+      <div class="ph ph-1-1 ph-navy"><span class="ph-label">Photo — the team on site</span></div>
+    </div>
+  </section>
+
+  <!-- ============ SHOP ============ -->
+  <section id="shop">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">The shop</p>
+          <h2>Fabrics, fittings &amp; furniture</h2>
+          <p class="section-sub">Everything we specify on projects, available to buy — fabric and wallpaper by the metre, brass by the drawer-pull, and furniture worth building a room around.</p>
+        </div>
+      </div>
+
+      <div class="shop-layout">
+        <aside class="shop-sidebar">
+          <h3>Category</h3>
+          <div class="filter-row" id="shopFilters" role="group" aria-label="Filter shop by category">
+            <button class="chip is-active" data-shop-filter="all" type="button">All (14)</button>
+            <button class="chip" data-shop-filter="fabrics" type="button">Fabrics</button>
+            <button class="chip" data-shop-filter="wallpaper" type="button">Wallpaper</button>
+            <button class="chip" data-shop-filter="lighting" type="button">Lighting</button>
+            <button class="chip" data-shop-filter="brasswear" type="button">Brasswear</button>
+            <button class="chip" data-shop-filter="rugs" type="button">Rugs</button>
+            <button class="chip" data-shop-filter="homeware" type="button">Homeware</button>
+            <button class="chip" data-shop-filter="furniture" type="button">Furniture</button>
+          </div>
+        </aside>
+
+        <div class="shop-main">
+          <div class="section-head" style="margin-bottom:var(--space-5);">
+            <span class="shop-count" id="shopCount">14 pieces</span>
+          </div>
+
+          <div class="products-grid" id="productsGrid">
+
+            <a class="product-card" href="#" data-category="fabrics">
+              <div class="ph ph-4-5 ph-sage" style="position:relative;">
+                <span class="tag tag-sage">New</span>
+                <span class="ph-label">Photo — ticking stripe linen</span>
+              </div>
+              <div class="product-body"><div class="product-title">Ticking stripe linen, by the metre</div><div class="product-price">£28</div></div>
+            </a>
+
+            <a class="product-card" href="#" data-category="fabrics">
+              <div class="ph ph-4-5 ph-terracotta"><span class="ph-label">Photo — faded floral chintz</span></div>
+              <div class="product-body"><div class="product-title">Faded floral chintz, by the metre</div><div class="product-price">£34</div></div>
+            </a>
+
+            <a class="product-card" href="#" data-category="wallpaper">
+              <div class="ph ph-4-5 ph-brass" style="position:relative;">
+                <span class="tag tag-brass">Limited</span>
+                <span class="ph-label">Photo — quatrefoil trellis wallpaper</span>
+              </div>
+              <div class="product-body"><div class="product-title">Quatrefoil trellis wallpaper</div><div class="product-price">£68 / roll</div></div>
+            </a>
+
+            <a class="product-card" href="#" data-category="wallpaper">
+              <div class="ph ph-4-5 ph-navy"><span class="ph-label">Photo — botanical block-print wallpaper</span></div>
+              <div class="product-body"><div class="product-title">Botanical block-print wallpaper</div><div class="product-price">£72 / roll</div></div>
+            </a>
+
+            <a class="product-card" href="#" data-category="lighting">
+              <div class="ph ph-4-5 ph-sage"><span class="ph-label">Photo — fluted glass table lamp</span></div>
+              <div class="product-body"><div class="product-title">Fluted glass table lamp</div><div class="product-price">£145</div></div>
+            </a>
+
+            <a class="product-card" href="#" data-category="lighting">
+              <div class="ph ph-4-5 ph-brass" style="position:relative;">
+                <span class="tag tag-navy">Restocked</span>
+                <span class="ph-label">Photo — brass picture light</span>
+              </div>
+              <div class="product-body"><div class="product-title">Brass picture light</div><div class="product-price">£96</div></div>
+            </a>
+
+            <a class="product-card" href="#" data-category="brasswear">
+              <div class="ph ph-4-5 ph-brass"><span class="ph-label">Photo — brass drawer pull</span></div>
+              <div class="product-body"><div class="product-title">Brass drawer pull</div><div class="product-price">£12</div></div>
+            </a>
+
+            <a class="product-card" href="#" data-category="brasswear">
+              <div class="ph ph-4-5 ph-terracotta"><span class="ph-label">Photo — ribbed brass candlestick</span></div>
+              <div class="product-body"><div class="product-title">Ribbed brass candlestick</div><div class="product-price">£34</div></div>
+            </a>
+
+            <a class="product-card" href="#" data-category="rugs">
+              <div class="ph ph-4-5 ph-navy"><span class="ph-label">Photo — vintage-wash rug, 6x9</span></div>
+              <div class="product-body"><div class="product-title">Vintage-wash rug, 6x9</div><div class="product-price">£480</div></div>
+            </a>
+
+            <a class="product-card" href="#" data-category="rugs">
+              <div class="ph ph-4-5 ph-sage" style="position:relative;">
+                <span class="tag tag-sage">New</span>
+                <span class="ph-label">Photo — wool herringbone runner</span>
+              </div>
+              <div class="product-body"><div class="product-title">Wool herringbone runner</div><div class="product-price">£120</div></div>
+            </a>
+
+            <a class="product-card" href="#" data-category="homeware">
+              <div class="ph ph-4-5 ph-sage" style="position:relative;">
+                <span class="tag tag-sage">New</span>
+                <span class="ph-label">Photo — ribbed stoneware vase</span>
+              </div>
+              <div class="product-body"><div class="product-title">Ribbed stoneware vase</div><div class="product-price">£48</div></div>
+            </a>
+
+            <a class="product-card" href="#" data-category="homeware">
+              <div class="ph ph-4-5 ph-terracotta"><span class="ph-label">Photo — hand-thrown breakfast bowl</span></div>
+              <div class="product-body"><div class="product-title">Hand-thrown breakfast bowl</div><div class="product-price">£22</div></div>
+            </a>
+
+            <a class="product-card" href="#" data-category="furniture">
+              <div class="ph ph-4-5 ph-brass"><span class="ph-label">Photo — rattan headboard, king</span></div>
+              <div class="product-body"><div class="product-title">Rattan headboard, king</div><div class="product-price">£620</div></div>
+            </a>
+
+            <a class="product-card" href="#" data-category="furniture">
+              <div class="ph ph-4-5 ph-navy" style="position:relative;">
+                <span class="tag tag-navy">Limited</span>
+                <span class="ph-label">Photo — carved oak side table</span>
+              </div>
+              <div class="product-body"><div class="product-title">Carved oak side table</div><div class="product-price">£310</div></div>
+            </a>
+
+          </div>
+          <p class="empty-state" id="shopEmpty">Nothing here yet — new stock lands most Fridays.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA BAND ============ -->
+  <section class="cta-band" id="contact">
+    <div class="container">
+      <p class="eyebrow">Start a project</p>
+      <h2>Ready to make a start on your rooms?</h2>
+      <p>Book a first consultation and we'll talk through your space, your budget, and what to tackle first — no obligation, no hard sell.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="mailto:hello@sabrinachristiesinteriors.co.uk">Book a consultation</a>
+        <a class="btn btn-outline" href="#shop">Browse the shop</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NEWSLETTER ============ -->
+  <section class="newsletter">
+    <div class="container">
+      <p class="eyebrow on-dark">Stay in the loop</p>
+      <h2>Join the list</h2>
+      <p>New arrivals, project reveals, and the odd sourcing find — roughly twice a month, never more.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <label class="visually-hidden" for="newsletterEmail">Email address</label>
+        <input type="email" id="newsletterEmail" required placeholder="you@email.com" autocomplete="email">
+        <button class="btn btn-dark" type="submit" style="background:var(--color-sage-deep);">Subscribe</button>
+      </form>
+      <p class="newsletter-success" id="newsletterSuccess">Thanks — you're on the list.</p>
+      <p class="newsletter-note">No spam. Unsubscribe any time.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="#top">Sabrina Christie's Interiors</a>
+        <p>Interior design and homewares for rooms that are meant to be lived in — country houses and city flats alike.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21v-6"/><path d="M8 12a4 4 0 1 1 8 0c0 3-2 5-4 5"/><circle cx="12" cy="12" r="10"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#shop" data-shop-link="fabrics">Fabrics</a></li>
+          <li><a href="#shop" data-shop-link="wallpaper">Wallpaper</a></li>
+          <li><a href="#shop" data-shop-link="lighting">Lighting</a></li>
+          <li><a href="#shop" data-shop-link="brasswear">Brasswear</a></li>
+          <li><a href="#shop" data-shop-link="rugs">Rugs</a></li>
+          <li><a href="#shop" data-shop-link="homeware">Homeware</a></li>
+          <li><a href="#shop" data-shop-link="furniture">Furniture</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Design consultations</a></li>
+          <li><a href="#services">Full room &amp; home design</a></li>
+          <li><a href="#services">Sourcing &amp; styling</a></li>
+          <li><a href="#services">Renovation management</a></li>
+          <li><a href="#projects">Our projects</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">Our story</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="mailto:trade@sabrinachristiesinteriors.co.uk">Trade enquiries</a></li>
+          <li><a href="mailto:hello@sabrinachristiesinteriors.co.uk">hello@sabrinachristiesinteriors.co.uk</a></li>
+          <li><a href="tel:+441234567890">+44 1234 567 890</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="footerYear"></span> Sabrina Christie's Interiors. All rights reserved.</span>
+      <span><a href="#">Privacy</a> · <a href="#">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // ---- Sticky header shadow/blur on scroll ----
+  var header = document.getElementById('siteHeader');
+  function onScroll(){
+    if (window.scrollY > 8) header.classList.add('is-scrolled');
+    else header.classList.remove('is-scrolled');
+  }
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ---- Mobile menu toggle ----
+  var menuToggle = document.getElementById('menuToggle');
+  var navLinks = document.getElementById('navLinks');
+  var navScrim = document.getElementById('navScrim');
+  function closeMenu(){
+    navLinks.classList.remove('is-open');
+    navScrim.classList.remove('is-open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  }
+  function toggleMenu(){
+    var open = navLinks.classList.toggle('is-open');
+    navScrim.classList.toggle('is-open', open);
+    menuToggle.setAttribute('aria-expanded', String(open));
+  }
+  menuToggle.addEventListener('click', toggleMenu);
+  navScrim.addEventListener('click', closeMenu);
+  navLinks.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  window.addEventListener('resize', function(){ if (window.innerWidth > 900) closeMenu(); });
+
+  // ---- Search bar toggle ----
+  var searchToggle = document.getElementById('searchToggle');
+  var searchBar = document.getElementById('searchBar');
+  searchToggle.addEventListener('click', function(){
+    var open = searchBar.classList.toggle('is-open');
+    searchToggle.setAttribute('aria-expanded', String(open));
+    if (open) document.getElementById('siteSearch').focus();
+  });
+
+  // ---- Generic chip-filter factory ----
+  function setupFilter(filterSelector, gridSelector, itemSelector, dataAttr, emptySelector, countEl, countNoun){
+    var buttons = document.querySelectorAll(filterSelector + ' [data-' + dataAttr + ']');
+    var items = document.querySelectorAll(gridSelector + ' ' + itemSelector);
+    var empty = document.querySelector(emptySelector);
+
+    function applyFilter(value){
+      var visible = 0;
+      items.forEach(function(item){
+        var cats = (item.getAttribute('data-category') || item.getAttribute('data-project-category') || '').split(' ');
+        var show = value === 'all' || cats.indexOf(value) !== -1;
+        item.hidden = !show;
+        if (show) visible++;
+      });
+      if (empty) empty.classList.toggle('is-visible', visible === 0);
+      if (countEl) countEl.textContent = visible + ' ' + countNoun;
+    }
+
+    buttons.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        buttons.forEach(function(b){ b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+        applyFilter(btn.getAttribute('data-' + dataAttr));
+      });
+    });
+
+    return applyFilter;
+  }
+
+  setupFilter('#projectFilters', '#projectsGrid', '.project-card', 'project-filter', '#projectsEmpty', null, '');
+  var applyShopFilter = setupFilter('#shopFilters', '#productsGrid', '.product-card', 'shop-filter', '#shopEmpty', document.getElementById('shopCount'), 'pieces');
+
+  // ---- Footer "shop" links jump to a filtered category ----
+  document.querySelectorAll('[data-shop-link]').forEach(function(a){
+    a.addEventListener('click', function(){
+      var cat = a.getAttribute('data-shop-link');
+      var chip = document.querySelector('#shopFilters [data-shop-filter="' + cat + '"]');
+      if (chip) chip.click();
+    });
+  });
+
+  // ---- Newsletter fake-submit ----
+  var newsletterForm = document.getElementById('newsletterForm');
+  var newsletterSuccess = document.getElementById('newsletterSuccess');
+  newsletterForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    newsletterForm.classList.add('is-hidden');
+    newsletterSuccess.classList.add('is-visible');
+  });
+
+  // ---- Footer year ----
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+})();
+</script>
+</body>
+</html>
