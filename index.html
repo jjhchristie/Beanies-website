@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sabrina Christie's Interiors — Interior Design &amp; Homewares</title>
-<meta name="description" content="Sabrina Christie's Interiors — interior design services and a shop of fabrics, wallpaper, lighting, brasswear, rugs, homeware and furniture.">
+<meta name="description" content="Sabrina Christie's Interiors — interior design consultations, full room and home design, sourcing and styling, and renovation project management.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -311,7 +311,7 @@ section{ padding:var(--space-9) 0; }
 
 /* ============ FOOTER ============ */
 footer.site-footer{ background:var(--surface-inverse); color:var(--color-cream); padding-top:var(--space-8); }
-.footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:var(--space-6); padding-bottom:var(--space-7); }
+.footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:var(--space-6); padding-bottom:var(--space-7); }
 @media (max-width:860px){ .footer-grid{ grid-template-columns:repeat(2,1fr); } }
 @media (max-width:480px){ .footer-grid{ grid-template-columns:1fr; } }
 .footer-brand .logo{ color:var(--color-cream); }
@@ -367,7 +367,6 @@ footer.site-footer{ background:var(--surface-inverse); color:var(--color-cream);
       <a href="#services">Interior Design</a>
       <a href="#projects">Projects</a>
       <a href="#about">Our Story</a>
-      <a href="#shop">Shop</a>
       <a href="#contact">Contact</a>
     </nav>
 
@@ -406,10 +405,10 @@ footer.site-footer{ background:var(--surface-inverse); color:var(--color-cream);
         <div class="hero-copy">
           <p class="eyebrow">Interior design &amp; homewares, UK-wide</p>
           <h1>Rooms that get better with age.</h1>
-          <p>We design and dress homes that mix inherited antiques with something a bit odd from a flea market — then fill the shop with the fabric, brass, and lighting to do it yourself.</p>
+          <p>We design and dress homes that mix inherited antiques with something a bit odd from a flea market — full consultations, full renovations, and everything in between.</p>
           <div class="hero-actions">
             <a class="btn btn-dark" href="#projects">View our projects</a>
-            <a class="btn btn-outline on-dark" href="#shop">Shop the edit</a>
+            <a class="btn btn-outline on-dark" href="#contact">Book a consultation</a>
           </div>
         </div>
       </div>
@@ -548,142 +547,14 @@ footer.site-footer{ background:var(--surface-inverse); color:var(--color-cream);
         <p class="eyebrow">Our story</p>
         <h2>A house, considered</h2>
         <p>Sabrina Christie's Interiors began as one house, restored slowly, room by room. We kept what worked, replaced what didn't, and got a little obsessive about door handles along the way.</p>
-        <p>Today we design homes and run a small shop alongside it — working with workshops across the country to make the fabric, lighting, and furniture for rooms that are meant to be lived in, not just photographed.</p>
-        <a class="btn btn-outline" href="#shop">Shop the collection</a>
+        <p>Today we design homes for a living — working with workshops and tradespeople across the country to make rooms that are meant to be lived in, not just photographed.</p>
+        <a class="btn btn-outline" href="#contact">Get in touch</a>
       </div>
     </div>
     <div class="about-strip">
       <div class="ph ph-1-1 ph-terracotta"><img class="zoom-img" src="Images/Shot-03-084_RT_LR.webp" alt="Garden patio with wrought iron table and cottage flowers"></div>
       <div class="ph ph-1-1 ph-brass"><img class="zoom-img" src="Images/Shot-13-453_RT_LR.webp" alt="Cosy writing nook with patterned blind and bookshelf"></div>
       <div class="ph ph-1-1 ph-navy"><img class="zoom-img" src="Images/05-15-25-HG-Burr092.webp" alt="The kitchen, mid-morning"></div>
-    </div>
-  </section>
-
-  <!-- ============ SHOP ============ -->
-  <section id="shop">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">The shop</p>
-          <h2>Fabrics, fittings &amp; furniture</h2>
-          <p class="section-sub">Everything we specify on projects, available to buy — fabric and wallpaper by the metre, brass by the drawer-pull, and furniture worth building a room around.</p>
-        </div>
-      </div>
-
-      <div class="shop-layout">
-        <aside class="shop-sidebar">
-          <h3>Category</h3>
-          <div class="filter-row" id="shopFilters" role="group" aria-label="Filter shop by category">
-            <button class="chip is-active" data-shop-filter="all" type="button">All (14)</button>
-            <button class="chip" data-shop-filter="fabrics" type="button">Fabrics</button>
-            <button class="chip" data-shop-filter="wallpaper" type="button">Wallpaper</button>
-            <button class="chip" data-shop-filter="lighting" type="button">Lighting</button>
-            <button class="chip" data-shop-filter="brasswear" type="button">Brasswear</button>
-            <button class="chip" data-shop-filter="rugs" type="button">Rugs</button>
-            <button class="chip" data-shop-filter="homeware" type="button">Homeware</button>
-            <button class="chip" data-shop-filter="furniture" type="button">Furniture</button>
-          </div>
-        </aside>
-
-        <div class="shop-main">
-          <div class="section-head" style="margin-bottom:var(--space-5);">
-            <span class="shop-count" id="shopCount">14 pieces</span>
-          </div>
-
-          <div class="products-grid" id="productsGrid">
-
-            <a class="product-card" href="#" data-category="fabrics">
-              <div class="ph ph-4-5 ph-sage" style="position:relative;">
-                <span class="tag tag-sage">New</span>
-                <img class="zoom-img" src="https://images.unsplash.com/photo-1601056639638-c53c50e13ead?auto=format&fit=crop&w=700&q=70" alt="Red, white and black striped textile">
-              </div>
-              <div class="product-body"><div class="product-title">Ticking stripe linen, by the metre</div><div class="product-price">£28</div></div>
-            </a>
-
-            <a class="product-card" href="#" data-category="fabrics">
-              <div class="ph ph-4-5 ph-terracotta"><span class="ph-label">Photo — faded floral chintz</span></div>
-              <div class="product-body"><div class="product-title">Faded floral chintz, by the metre</div><div class="product-price">£34</div></div>
-            </a>
-
-            <a class="product-card" href="#" data-category="wallpaper">
-              <div class="ph ph-4-5 ph-brass" style="position:relative;">
-                <span class="tag tag-brass">Limited</span>
-                <span class="ph-label">Photo — quatrefoil trellis wallpaper</span>
-              </div>
-              <div class="product-body"><div class="product-title">Quatrefoil trellis wallpaper</div><div class="product-price">£68 / roll</div></div>
-            </a>
-
-            <a class="product-card" href="#" data-category="wallpaper">
-              <div class="ph ph-4-5 ph-navy"><img class="zoom-img" src="https://images.unsplash.com/photo-1621180733616-ab81f2ae7d04?auto=format&fit=crop&w=700&q=70" alt="Green fern plant near a striped wall"></div>
-              <div class="product-body"><div class="product-title">Botanical block-print wallpaper</div><div class="product-price">£72 / roll</div></div>
-            </a>
-
-            <a class="product-card" href="#" data-category="lighting">
-              <div class="ph ph-4-5 ph-sage"><img class="zoom-img" src="https://images.unsplash.com/photo-1608904691208-4805905b5e62?auto=format&fit=crop&w=700&q=70" alt="Brass and white table lamp"></div>
-              <div class="product-body"><div class="product-title">Fluted glass table lamp</div><div class="product-price">£145</div></div>
-            </a>
-
-            <a class="product-card" href="#" data-category="lighting">
-              <div class="ph ph-4-5 ph-brass" style="position:relative;">
-                <span class="tag tag-navy">Restocked</span>
-                <img class="zoom-img" src="https://images.unsplash.com/photo-1501471984908-815b996862f4?auto=format&fit=crop&w=700&q=70" alt="Lighted wall sconce">
-              </div>
-              <div class="product-body"><div class="product-title">Brass picture light</div><div class="product-price">£96</div></div>
-            </a>
-
-            <a class="product-card" href="#" data-category="brasswear">
-              <div class="ph ph-4-5 ph-brass"><img class="zoom-img" src="https://images.unsplash.com/photo-1578250594766-aa20422ef541?auto=format&fit=crop&w=700&q=70" alt="Brass-coloured rack detail"></div>
-              <div class="product-body"><div class="product-title">Brass drawer pull</div><div class="product-price">£12</div></div>
-            </a>
-
-            <a class="product-card" href="#" data-category="brasswear">
-              <div class="ph ph-4-5 ph-terracotta"><img class="zoom-img" src="https://images.unsplash.com/photo-1559058922-5d29e1f00075?auto=format&fit=crop&w=700&q=70" alt="Brass metal texture detail"></div>
-              <div class="product-body"><div class="product-title">Ribbed brass candlestick</div><div class="product-price">£34</div></div>
-            </a>
-
-            <a class="product-card" href="#" data-category="rugs">
-              <div class="ph ph-4-5 ph-navy"><img class="zoom-img" src="https://images.unsplash.com/photo-1756361771334-2185911bfff5?auto=format&fit=crop&w=700&q=70" alt="Close-up of a persian rug with intricate floral patterns"></div>
-              <div class="product-body"><div class="product-title">Vintage-wash rug, 6x9</div><div class="product-price">£480</div></div>
-            </a>
-
-            <a class="product-card" href="#" data-category="rugs">
-              <div class="ph ph-4-5 ph-sage" style="position:relative;">
-                <span class="tag tag-sage">New</span>
-                <span class="ph-label">Photo — wool herringbone runner</span>
-              </div>
-              <div class="product-body"><div class="product-title">Wool herringbone runner</div><div class="product-price">£120</div></div>
-            </a>
-
-            <a class="product-card" href="#" data-category="homeware">
-              <div class="ph ph-4-5 ph-sage" style="position:relative;">
-                <span class="tag tag-sage">New</span>
-                <img class="zoom-img" src="https://images.unsplash.com/photo-1660721671073-e139688fa3cf?auto=format&fit=crop&w=700&q=70" alt="A stack of handmade stoneware bowls and a vase">
-              </div>
-              <div class="product-body"><div class="product-title">Ribbed stoneware vase</div><div class="product-price">£48</div></div>
-            </a>
-
-            <a class="product-card" href="#" data-category="homeware">
-              <div class="ph ph-4-5 ph-terracotta"><img class="zoom-img" src="https://images.unsplash.com/photo-1506368197720-c242fdaa44dc?auto=format&fit=crop&w=700&q=70" alt="Ceramic bowl filled with cereal and a spoon"></div>
-              <div class="product-body"><div class="product-title">Hand-thrown breakfast bowl</div><div class="product-price">£22</div></div>
-            </a>
-
-            <a class="product-card" href="#" data-category="furniture">
-              <div class="ph ph-4-5 ph-brass"><img class="zoom-img" src="https://images.unsplash.com/photo-1634212926265-f84991da274d?auto=format&fit=crop&w=700&q=70" alt="A wicker chair with a cushion, rattan texture"></div>
-              <div class="product-body"><div class="product-title">Rattan headboard, king</div><div class="product-price">£620</div></div>
-            </a>
-
-            <a class="product-card" href="#" data-category="furniture">
-              <div class="ph ph-4-5 ph-navy" style="position:relative;">
-                <span class="tag tag-navy">Limited</span>
-                <img class="zoom-img" src="https://images.unsplash.com/photo-1568842377941-63a9550044bf?auto=format&fit=crop&w=700&q=70" alt="Brown wooden carved side table">
-              </div>
-              <div class="product-body"><div class="product-title">Carved oak side table</div><div class="product-price">£310</div></div>
-            </a>
-
-          </div>
-          <p class="empty-state" id="shopEmpty">Nothing here yet — new stock lands most Fridays.</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -695,7 +566,6 @@ footer.site-footer{ background:var(--surface-inverse); color:var(--color-cream);
       <p>Book a first consultation and we'll talk through your space, your budget, and what to tackle first — no obligation, no hard sell.</p>
       <div class="cta-actions">
         <a class="btn btn-primary" href="mailto:hello@sabrinachristiesinteriors.co.uk">Book a consultation</a>
-        <a class="btn btn-outline" href="#shop">Browse the shop</a>
       </div>
     </div>
   </section>
@@ -729,19 +599,6 @@ footer.site-footer{ background:var(--surface-inverse); color:var(--color-cream);
           <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21v-6"/><path d="M8 12a4 4 0 1 1 8 0c0 3-2 5-4 5"/><circle cx="12" cy="12" r="10"/></svg></a>
           <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3Z"/></svg></a>
         </div>
-      </div>
-
-      <div class="footer-col">
-        <h4>Shop</h4>
-        <ul>
-          <li><a href="#shop" data-shop-link="fabrics">Fabrics</a></li>
-          <li><a href="#shop" data-shop-link="wallpaper">Wallpaper</a></li>
-          <li><a href="#shop" data-shop-link="lighting">Lighting</a></li>
-          <li><a href="#shop" data-shop-link="brasswear">Brasswear</a></li>
-          <li><a href="#shop" data-shop-link="rugs">Rugs</a></li>
-          <li><a href="#shop" data-shop-link="homeware">Homeware</a></li>
-          <li><a href="#shop" data-shop-link="furniture">Furniture</a></li>
-        </ul>
       </div>
 
       <div class="footer-col">
@@ -845,16 +702,6 @@ footer.site-footer{ background:var(--surface-inverse); color:var(--color-cream);
   }
 
   setupFilter('#projectFilters', '#projectsGrid', '.project-card', 'project-filter', '#projectsEmpty', null, '');
-  var applyShopFilter = setupFilter('#shopFilters', '#productsGrid', '.product-card', 'shop-filter', '#shopEmpty', document.getElementById('shopCount'), 'pieces');
-
-  // ---- Footer "shop" links jump to a filtered category ----
-  document.querySelectorAll('[data-shop-link]').forEach(function(a){
-    a.addEventListener('click', function(){
-      var cat = a.getAttribute('data-shop-link');
-      var chip = document.querySelector('#shopFilters [data-shop-filter="' + cat + '"]');
-      if (chip) chip.click();
-    });
-  });
 
   // ---- Newsletter fake-submit ----
   var newsletterForm = document.getElementById('newsletterForm');
